@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <title>SimulaUC-1</title>
+  <link rel="stylesheet" href="../dist/angular-chart.css">
+  <link href="bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="app.css">
+</head>
+<body ng-app="examples">
+<div class="container"></div>
+<div id="container" class="container">
+  <div class="row" ng-controller="DataTablesCtrl">
+    <div class="col-lg-10 col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">Datos 1</div>
+        <div class="panel-body">
+          <table class="table table-responsive table-condensed">
+            <tr>
+              <th ng-repeat="label in labels">{{label}}</th>
+            </tr>
+            <tr ng-repeat="dataSet in data">
+              <td ng-repeat="set in dataSet track by $index"><span style="text-align: right;">{{data[$parent.$index][$index]}}</span></td>
+            </tr>
+          </table>
+          <button class="btn btn-primary pull-right" ng-click="randomize()" value="Random" type="button">Random</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-10 col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">Datos 2</div>
+        <div class="panel-body">
+          <canvas id="tables" class="chart chart-line" data="data" labels="labels"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+<script src="angular-chart.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
